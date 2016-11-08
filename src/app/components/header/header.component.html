@@ -9,16 +9,18 @@
         <span class="icon-bar"></span>
       </button>
 
-      <img src="../../../assets/logo.svg" height="50" width="100" class="logo"/>
+      <a [routerLink]="['/fixtures']"><img src="../../../assets/logo.svg" height="50" width="100" class="logo"/></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li [class.active]="isLinkActive[0]"><a (click)="activateLink('Fixtures')">Fixtures <span class="sr-only">(current)</span></a></li>
-        <li [class.active]="isLinkActive[1]"><a (click)="activateLink('Tournaments')" >Tournaments</a></li>
-        <li [class.active]="isLinkActive[2]"><a (click)="activateLink('Standings')">Standings</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/fixtures']">Fixtures <span class="sr-only">(current)</span></a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/results']" >Results</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/teams']" >Teams</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/standings']">Standings</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<router-outlet></router-outlet>
