@@ -48,15 +48,44 @@
 .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
   color: #262e48;
   background-color: #fff05e;
+}
+/*.navbar-default .navbar-nav > .active > a,*/
+/*.navbar-default .navbar-nav > .active > a:hover,*/
+/*.navbar-default .navbar-nav > .active > a:focus {*/
+  /*color: #262e48;*/
+  /*background-color: #fff05e;*/
+  /*border-bottom: #7449AD solid 3px;*/
+/*}*/
 
+/*Todo- hovering experiment - remove from the below line till the next todo mark Later */
+.navbar-default .navbar-nav li::after{
+  content:"";
+  display:block;
+  width:0%;
+  height:0px;
+  background-color: #7449AD;
+  transition: width 0.2s;
 }
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-  color: #262e48;
-  background-color: #fff05e;
-  border-bottom: #7449AD solid 3px;
+.navbar-default .navbar-nav li:hover::after{
+  content:"";
+  display:block;
+  width:100%;
+  height:4px;
+  background-color: #7449AD;
+  transition: width 0.2s;
 }
+
+.navbar-default .navbar-nav > .active::after,
+.navbar-default .navbar-nav > .active:hover::after,
+.navbar-default .navbar-nav > .active:focus::after {
+  content:"";
+  display:block;
+  width:100%;
+  height:4px;
+  background-color: #7449AD;
+}
+/*Todo - remove above this line*/
+
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
