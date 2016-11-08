@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FootballService} from "../../services/football.service";
 
 @Component({
   selector: 'ft-fixtures',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FixturesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private footballService:FootballService) { }
 
   ngOnInit() {
+    console.log(this.footballService.getFixtures());
   }
 
 }
