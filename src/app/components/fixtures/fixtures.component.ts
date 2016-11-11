@@ -8,10 +8,13 @@ import {FootballService} from "../../services/football.service";
 })
 export class FixturesComponent implements OnInit {
 
-  constructor(private footballService:FootballService) { }
+  constructor(private footballService:FootballService) {
+    this.footballService.getFixtures();
+    console.log(this.footballService.fixtures);
+  }
 
   ngOnInit() {
-    console.log(this.footballService.getFixtures());
+    //console.log(this.footballService.getFixtures());
   }
 
 }
