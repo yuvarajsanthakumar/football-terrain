@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FootballService} from "../../services/football.service";
+import {Fixtures} from "../../models";
 
 @Component({
   selector: 'ft-fixtures',
@@ -7,14 +8,19 @@ import {FootballService} from "../../services/football.service";
   styleUrls: ['./fixtures.component.css']
 })
 export class FixturesComponent implements OnInit {
-
-  constructor(private footballService:FootballService) {
-    this.footballService.getFixtures();
-    console.log(this.footballService.fixtures);
-  }
+  private fixtures:Fixtures;
+  constructor(private footballService:FootballService) {}
 
   ngOnInit() {
-    //console.log(this.footballService.getFixtures());
+    this.getFixtures();
   }
+
+  private getFixtures(){
+      this.footballService.getFixtures().subscribe(
+        fixtures => {
+          this.fixtures = fixtures;
+          console.log(this.fixtures);
+              })
+      }
 
 }
