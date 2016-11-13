@@ -1,4 +1,4 @@
-<div id="ft-fixtures-container">
+<div [hidden]="fixtures===null"  id="ft-fixtures-container">
     <ft-date-header *ngIf="fixtures!=null" [from]="fixtures.timeFrameStart" [to]="fixtures.timeFrameEnd"></ft-date-header>
     <ft-fixture-list *ngIf="fixtures!=null" [matches]="fixtures.matches" ></ft-fixture-list>
 </div>

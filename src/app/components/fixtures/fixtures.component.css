@@ -7,7 +7,7 @@
   width:960px;
   animation-name: ft-rise-up;
   animation-duration: 0.7s;
-  animation-timing-function: ease-out;
+  animation-timing-function: ease;
   animation-fill-mode: forwards;
   background-color: white;
   margin-left:auto;
