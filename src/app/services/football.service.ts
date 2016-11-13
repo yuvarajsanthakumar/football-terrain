@@ -18,7 +18,7 @@ export class FootballService {
       'X-Auth-Token': '8a4940261894452ba8bfc708d693266e'
     });
     this.http.get(this.config.apiEndpoint+'fixtures',{headers:headers})
-      .map((response: Response) => {console.log(response.json()); return response.json();})
+      .map((response: Response) => response.json())
       .map((fixtures:any) =>
         new Fixtures(
         fixtures.fixtures.map((match:any) => {
@@ -38,6 +38,7 @@ export class FootballService {
 
   private notifyFixturesUpdate() {
     this._fixturesSource.next(this.fixtures);
+
   }
 
   getFixtures():Fixtures{
