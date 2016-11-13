@@ -8,7 +8,7 @@ import {Fixtures} from "../../models";
   styleUrls: ['./fixtures.component.css']
 })
 export class FixturesComponent implements OnInit {
-  private fixtures:Fixtures;
+  private fixtures:Fixtures = null;
   constructor(private footballService:FootballService) {}
 
   ngOnInit() {

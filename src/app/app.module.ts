@@ -8,6 +8,8 @@ import { HeaderComponent,FixturesComponent,TeamsComponent,ResultsComponent,Stand
 import {FootballTerrainRouting} from "./app.routing";
 import {APP_CONFIG, FOOTBALL_TERRAIN_CONFIG} from "./app.config";
 import {FootballService} from "./services/football.service";
+import { DateHeaderComponent } from './components/date-header/date-header.component';
+import { FixtureListComponent } from './components/fixture-list/fixture-list.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import {FootballService} from "./services/football.service";
     FixturesComponent,
     TeamsComponent,
     ResultsComponent,
-    StandingsComponent
+    StandingsComponent,
+    DateHeaderComponent,
+    FixtureListComponent
   ],
   imports: [
     BrowserModule,

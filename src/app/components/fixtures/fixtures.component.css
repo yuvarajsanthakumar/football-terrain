@@ -5,7 +5,6 @@
 #ft-fixtures-container{
   position: relative;
   width:960px;
-  height:1100px;
   animation-name: ft-rise-up;
   animation-duration: 0.7s;
   animation-timing-function: ease-out;
