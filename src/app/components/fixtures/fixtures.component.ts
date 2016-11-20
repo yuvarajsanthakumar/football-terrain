@@ -2,6 +2,8 @@ import {Component, OnInit, OnDestroy} from '@angular/core';
 import {FootballService} from "../../services/football.service";
 import {Fixtures} from "../../models";
 import {Subscription} from "rxjs/Rx";
+import {DateService} from "../../services/date.service";
+import {Router, ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'ft-fixtures',
@@ -11,9 +13,10 @@ import {Subscription} from "rxjs/Rx";
 export class FixturesComponent implements OnInit, OnDestroy{
   private fixtures:Fixtures = null;
   private subscription:Subscription;
-  constructor(private footballService:FootballService) {}
+  constructor(private footballService:FootballService, private dateService:DateService,private router:Router, private route:ActivatedRoute) {}
 
   ngOnInit() {
+    console.log("init of football.component");
     this.subscription = this.footballService.fixtures$.subscribe(fixtures => this.fixtures = fixtures);
     this.fetchFixtures();
   }

@@ -10,6 +10,8 @@ import {APP_CONFIG, FOOTBALL_TERRAIN_CONFIG} from "./app.config";
 import {FootballService} from "./services/football.service";
 import { DateHeaderComponent } from './components/date-header/date-header.component';
 import { FixtureListComponent } from './components/fixture-list/fixture-list.component';
+import { FtDatePipe } from './pipes/ft-date.pipe';
+import {DateService} from "./services/date.service";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { FixtureListComponent } from './components/fixture-list/fixture-list.com
     ResultsComponent,
     StandingsComponent,
     DateHeaderComponent,
-    FixtureListComponent
+    FixtureListComponent,
+    FtDatePipe,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { FixtureListComponent } from './components/fixture-list/fixture-list.com
   ],
   providers: [
     { provide: APP_CONFIG, useValue: FOOTBALL_TERRAIN_CONFIG },
-    FootballService
+    FootballService,
+    DateService
   ],
   bootstrap: [AppComponent]
 })

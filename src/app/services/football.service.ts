@@ -4,13 +4,14 @@ import {Http, Response, Headers} from "@angular/http";
 import 'rxjs/Rx';
 import {Fixtures,Match,Result} from "../models";
 import {BehaviorSubject} from "rxjs/Rx";
+import {DateService} from "./date.service";
 
 @Injectable()
 export class FootballService {
   public fixtures:Fixtures;
   private _fixturesSource: BehaviorSubject<Fixtures> = new BehaviorSubject<Fixtures>(null);
   public fixtures$ = this._fixturesSource.asObservable();
-  constructor(private http: Http,  @Inject(APP_CONFIG) private config: AppConfig) {
+  constructor(private http: Http, private dateService:DateService,  @Inject(APP_CONFIG) private config: AppConfig) {
   }
 
   loadFixtures() {
@@ -24,7 +25,7 @@ export class FootballService {
         fixtures.fixtures.map((match:any) => {
           let selfUrl:Array<string> = match._links.self.href.split('fixtures/');
           let dateFromJson:Date = new Date(match.date.toString());
-          let date:number = Number(''+dateFromJson.getFullYear()+(dateFromJson.getMonth()+1)+dateFromJson.getDate()+'');
+          let date:number = this.dateService.getNumberFromDate(dateFromJson);
           return new Match(Number(selfUrl[selfUrl.length-1]),match.homeTeamName,match._links.homeTeam.href,
             match.awayTeamName,match._links.awayTeam.href,match._links.competition.href,date,dateFromJson,
             new Result(match.result.goalsHomeTeam,match.result.goalsAwayTeam),match.status)

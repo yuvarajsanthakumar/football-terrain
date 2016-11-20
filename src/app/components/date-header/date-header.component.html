@@ -1,4 +1,6 @@
 <div *ngIf="dates!=null">
-  <p *ngFor="let date of dates">{{date}}
-  </p>
+  <a class="calendar-item"  *ngFor="let date of dates" [routerLink]="date" routerLinkActive="active">
+    <div class="calendar-date">{{date | ftDate}}</div>
+    <div class="calendar-day">{{date | ftDate:"weekday" | uppercase}}</div>
+  </a>
 </div>
