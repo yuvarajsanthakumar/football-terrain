@@ -1,23 +1,33 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, OnDestroy} from '@angular/core';
 import {FootballService} from "../../services/football.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'ft-date-header',
   templateUrl: './date-header.component.html',
   styleUrls: ['./date-header.component.css']
 })
-export class DateHeaderComponent implements OnInit {
+export class DateHeaderComponent implements OnInit, OnDestroy {
+  private subscription: Subscription;
+  @Input() public from: Date;
+  @Input() public to: Date;
+  public dates: number[];
 
-  @Input() public from:Date;
-  @Input() public to:Date;
-  public dates:number[];
-  constructor(public service:FootballService) { }
-
-  ngOnInit() {
-    this.dates = this.service.fixtures.dateList;
+  constructor(public service: FootballService) {
   }
 
-  private generateDates() {
+  ngOnInit() {
+    this.subscription = this.service.loadFixtures().subscribe(
+      fixtures => this.dates = fixtures.dateList
+    );
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  private
+  generateDates() {
 
   }
 

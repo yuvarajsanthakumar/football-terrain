@@ -17,8 +17,11 @@ export class FixturesComponent implements OnInit, OnDestroy{
 
   ngOnInit() {
     console.log("init of football.component");
-    this.subscription = this.footballService.fixtures$.subscribe(fixtures => this.fixtures = fixtures);
-    this.fetchFixtures();
+    this.subscription = this.footballService.loadFixtures().
+      subscribe(
+        fixtures => {
+          this.fixtures = fixtures;
+        });
   }
 
   ngOnDestroy(){

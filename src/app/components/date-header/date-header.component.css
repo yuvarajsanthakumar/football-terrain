@@ -1,6 +1,6 @@
 a{
   text-decoration: none;
-  color:black;
+  color:#262e48;
 }
 .calendar-item{
   display: inline-block;
@@ -10,11 +10,11 @@ a{
   padding:0 10px;
 }
 .calendar-item.active,.calendar-item.active:hover{
-  background-color: #0000cc;
+  background-color: #7449AD;
   color:white;
 }
 .calendar-item:hover{
-  color:#0000cc;
+  color:#7449AD;
 }
 .calendar-date{
   font-weight:bold;
